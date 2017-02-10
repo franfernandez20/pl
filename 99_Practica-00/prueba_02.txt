@@ -1,0 +1,31 @@
+
+#Titulo de la pagina#
+ 
+***
+##Ahora un subtitulo##
+---
+### un pequeño texto con letra
+mas pequeña h3 dfnssldksdjsd
+djskdsslfffm ###
+
+___
+ __esta frase esta en negrita__ ##con barra baja##
+*esta linea es cursiva*##con un asterisco##
+**esta en negrita  ** ## con asteriscos##
+_esta es cursiva tb_ ##ahora con una barra baja##
+___
+
+~~~
+System.out.print("Primera linea de codigo");
+System.out.print("... mas codigo ...");
+System.out.print("... mas codigo ...");
+~~~
+___
+> Esto sera una cita
+     >  Y esto  tb sera una cita
+
+  
+
+[haber si es un enlace](http://www.google.com)
+
+** esto negrita1 _esto cursiva_ esto negrita2**

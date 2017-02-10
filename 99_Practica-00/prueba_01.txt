@@ -1,0 +1,49 @@
+
+###esto h3 ###
+#Esto en h1#
+esto no 
+***
+##esto es h2##
+ckd # esto tb en h1 # dkdd
+###esto h3 ###
+/*Esto es un comentario */
+---
+sdfkmewn __negrita1__
+**negrita2**
+__dddd__
+
+~~~
+System.out.print("Primera linea de codigo");
+System.out.print("... mas codigo ...");
+System.out.print("... mas codigo ...");
+~~~
+> Esto sera una cita
+     > esto  tb sera una cita
+___
+***    
+
+{Bold} | {Bold2}	{
+				String cadena = yytext();
+				cadena=cadena.replace("*","");
+				cadena=cadena.replace("_","");
+				System.out.println("<SPAN class=\"bold\">"+cadena+"</SPAN>");
+
+			}
+
+
+						String neg1="", neg2="", curs = "";
+						String cadena = yytext();
+						int i=2, length = cadena.length();
+						while(cadena.charAt(i)!='_'){
+							i++;
+						}
+						neg1 = cadena.substring(2,i);
+						cadena = cadena.substring(i+1,length);
+						i=0;
+						while(cadena.charAt(i)!='_'){
+							i++;
+						}
+						curs = cadena.substring(1,i);
+						neg2 = cadena.substring(i,length-2);
+						
+						System.out.println("<SPAN class=\"bold\">"+neg1+"<SPAN class=\"ital\">"+curs+"</SPAN>"+neg2+"</SPAN>");
