@@ -47,3 +47,23 @@ ___
 						neg2 = cadena.substring(i,length-2);
 						
 						System.out.println("<SPAN class=\"bold\">"+neg1+"<SPAN class=\"ital\">"+curs+"</SPAN>"+neg2+"</SPAN>");
+
+
+
+---------------------------------------------
+
+{Bold} | {Bold2}	{
+				String cadena = yytext();
+				cadena=cadena.replace("*","");
+				cadena=cadena.replace("_","");
+				System.out.println("<SPAN class=\"bold\">"+cadena+"</SPAN>");
+
+			}
+
+{Ital} | {Ital2}	{
+				String cadena = yytext();
+				cadena=cadena.replace("*","");
+				cadena=cadena.replace("_","");
+				System.out.println("<SPAN class=\"ital\">"+cadena+"</SPAN>");
+
+			}
