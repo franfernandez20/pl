@@ -1,5 +1,9 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.FileNotFoundException;
 %%
-%class MdtoHTML
+%class FernandezPerez
 %standalone
 %{
  
@@ -11,6 +15,15 @@
 %}
 %init{
  /* Código que se ejecutará en el constructor de la clase */
+	/*Codigo para redirigir la salida a un archivo .html 
+			--TODO habria que añadir "throws FileNotFoundException"
+			desde aqui y en el escaner de la clase java :MdtoHTML(java.io.Reader in) 
+	*/
+//	File file = new File("salida.html");
+//	FileOutputStream fos = new FileOutputStream(file);
+//	PrintStream ps = new PrintStream(fos);
+//	System.setOut(ps);
+	////
  	System.out.println("<!DOCTYPE html><html>");
  	System.out.println("<head>");
  	System.out.println("<title>MarkDown2HTML</title>");
@@ -21,6 +34,11 @@
  	System.out.println("</head><body> ");
 
 %init}
+
+/*Prueba para lanzar la excepcion comentada arriba*/
+//%initthrow{
+//		"FileNotFoundException"
+//%initthrow}
 %eof{
  
  /* Código a ejecutar al finalizar el análisis */
@@ -58,7 +76,7 @@
  
  Code = "~~~" {CualquierCosa} ~"~~~"
 
- AnidarItalenBold = "**" [^*]* Ital2 [^*]* "**"
+AnidarItalenBold = "**" [^*]* Ital2 [^*]* "**"
 Http = "http://" | "https://"
 Href = "[" {Caracteres}* "]" "(" {Caracteres}* ")"
 HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
