@@ -128,7 +128,6 @@ HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigit
 				System.out.println("<code> <pre>"+cadena+"</pre></code>");
 			}
 
-{FinDeLinea} {System.out.println();}
 
 {TraditionalComment} {	String cadena = yytext();
 						cadena.substring(4, yylength()-4);
@@ -168,6 +167,7 @@ HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigit
 			}
 
 
+{FinDeLinea} {System.out.println("");}
 
 
 [^] {/*Ignorar*/}
