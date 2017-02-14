@@ -76,7 +76,8 @@ import java.io.FileNotFoundException;
  
  Code = "~~~" {CualquierCosa} ~"~~~" //Si lo metes en la misma linea tb lo reconoce 
 
-AnidarItalenBold = "**" [^*]* Ital2 [^*]* "**"
+AnidarItalenBold = "**" [^*\n_]* "_" [^_\n]* "_" [^*\n_]* "**"
+
 Http = "http://" | "https://"
 Href = "[" {Caracteres}* "]" "(" {Caracteres}* ")"
 HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
@@ -129,7 +130,22 @@ ListaN = {Lista} {Lista}+
 			}
 
 {AnidarItalenBold}	{
-						System.out.println(yytext()+"YESS");
+						String cadenAux,cadena = yytext();
+						while (cadena.charAt(c)!='_'){
+							c++;
+						}
+						cadenAux = cadena.substring(2,c);
+						System.out.print("<SPAN class=\"bold\">"+cadenAux);
+						cadena = cadena.substring(c+1,cadena.length());
+						c=0;
+						while (cadena.charAt(c)!='_'){
+							c++;
+						}
+						cadenAux= cadena.substring(0,c);
+						System.out.print("<SPAN class=\"ital\">"+cadenAux+"</SPAN>");
+						cadena = cadena.substring(c+1,cadena.length()-2);
+						System.out.print(cadena+"</SPAN>");
+						
 					}
 {Bold} | {Bold2}	{
 				String cadena = yytext();

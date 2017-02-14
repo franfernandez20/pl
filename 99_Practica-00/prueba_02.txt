@@ -35,7 +35,7 @@ ___
 [haber si es un enlace malo ](httdfp://www.google.com)
 [haber si es un enlace malo ](http://www.goog/le.com)
 
-** esto negrita1 _CURSIVA_ esto negrita2**
+** esto negrita1 _CURSIVA_ esto negrita2 **
 
 - una lista
 - otra lista dentro de ella
@@ -43,4 +43,6 @@ ___
 - otra lista distinta 
 
 # encabezado
+
+** esto sera negrita _ dentro de la negrita esto en cursiva _ y ahora mas negrita **
 

@@ -35,11 +35,11 @@ class FernandezPerez {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\12\0\1\10\2\0\1\7\22\0\1\6\2\0\1\5\4\0\1\27"+
-    "\1\30\1\3\1\0\1\0\1\4\1\31\1\2\2\1\1\20\7\1"+
-    "\1\23\3\0\1\12\2\0\10\1\1\14\21\1\1\25\1\0\1\26"+
-    "\1\0\1\11\1\0\1\16\6\1\1\21\3\1\1\17\3\1\1\22"+
-    "\2\1\1\24\1\15\6\1\1\0\1\0\1\0\1\13\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff91\0";
+    "\12\0\1\10\2\0\1\7\22\0\1\6\2\0\1\5\4\0\1\23"+
+    "\1\24\1\3\1\0\1\0\1\4\1\25\1\2\12\1\1\17\3\0"+
+    "\1\12\2\0\32\1\1\21\1\0\1\22\1\0\1\11\1\0\7\1"+
+    "\1\14\7\1\1\16\2\1\1\20\1\15\6\1\1\0\1\0\1\0"+
+    "\1\13\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff91\0";
 
   /** 
    * Translates characters to character classes
@@ -52,15 +52,15 @@ class FernandezPerez {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\5\1\2\2\4\1\11\0\1\3\5\0\1\4"+
-    "\10\0\2\3\3\0\1\5\1\0\2\6\1\0\2\7"+
-    "\3\0\2\10\5\0\1\11\1\0\1\12\6\0\2\13"+
-    "\1\12\2\0\1\12\6\0\2\14\1\15\3\0\1\7"+
-    "\2\0\2\16\1\15\2\0\2\17\1\0\2\20\1\15"+
-    "\2\0\1\21\2\22\6\0\1\23\1\0";
+    "\1\0\4\1\2\2\4\1\10\0\1\3\3\0\1\4"+
+    "\11\0\2\3\3\0\2\5\2\0\2\6\3\0\2\7"+
+    "\5\0\1\10\2\11\6\0\2\12\1\11\2\0\1\11"+
+    "\1\0\1\11\1\0\1\13\5\0\2\14\1\15\3\0"+
+    "\1\6\2\0\2\16\1\15\1\0\1\13\2\17\1\0"+
+    "\2\20\1\15\2\0\2\21\6\0\1\22\1\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[112];
+    int [] result = new int[110];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -85,23 +85,23 @@ class FernandezPerez {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\32\0\64\0\116\0\150\0\202\0\234\0\32"+
-    "\0\266\0\320\0\352\0\u0104\0\u011e\0\u0138\0\u0152\0\u016c"+
-    "\0\u0186\0\u01a0\0\u01ba\0\u01d4\0\u01ee\0\u0208\0\u0222\0\u0104"+
-    "\0\u023c\0\u0256\0\u0270\0\32\0\u028a\0\u02a4\0\u02be\0\u02d8"+
-    "\0\u02f2\0\u030c\0\u0326\0\u0340\0\u035a\0\32\0\u0374\0\u038e"+
-    "\0\u03a8\0\32\0\u03c2\0\u03dc\0\32\0\u03f6\0\u0410\0\u042a"+
-    "\0\u0444\0\u045e\0\u0478\0\u0326\0\32\0\u0492\0\u04ac\0\u04c6"+
-    "\0\u04e0\0\u04fa\0\u04c6\0\u0514\0\u052e\0\u0548\0\u0562\0\u057c"+
-    "\0\u0596\0\u05b0\0\u05ca\0\u0478\0\32\0\u05e4\0\u05fe\0\u0618"+
-    "\0\32\0\u0632\0\u064c\0\u0666\0\u0680\0\u069a\0\u06b4\0\u05ca"+
-    "\0\32\0\u06ce\0\u06e8\0\u0702\0\u071c\0\u071c\0\u0736\0\u0750"+
-    "\0\u06b4\0\32\0\u076a\0\u0784\0\u079e\0\u071c\0\u042a\0\u07b8"+
-    "\0\u0750\0\32\0\32\0\u07d2\0\u07ec\0\u052e\0\u07b8\0\32"+
-    "\0\u0806\0\u0820\0\u083a\0\u0854\0\u086e\0\u0888\0\u04c6\0\u08a2";
+    "\0\0\0\26\0\54\0\102\0\130\0\156\0\26\0\204"+
+    "\0\232\0\260\0\306\0\334\0\362\0\u0108\0\u011e\0\u0134"+
+    "\0\u014a\0\u0160\0\u0176\0\u018c\0\u01a2\0\306\0\u01b8\0\26"+
+    "\0\u01ce\0\u01e4\0\u01fa\0\u0210\0\u0226\0\u023c\0\u0252\0\u0268"+
+    "\0\u027e\0\u0294\0\26\0\u02aa\0\u02c0\0\u02d6\0\u02ec\0\26"+
+    "\0\u0302\0\u0318\0\u032e\0\u0344\0\u035a\0\u0370\0\u0386\0\u0268"+
+    "\0\26\0\u039c\0\u03b2\0\u03c8\0\u03de\0\u03f4\0\u03c8\0\u040a"+
+    "\0\u0420\0\u0436\0\u044c\0\u0462\0\u0478\0\u048e\0\u04a4\0\u0386"+
+    "\0\26\0\u04ba\0\u04d0\0\u04e6\0\26\0\u04fc\0\u04fc\0\u0512"+
+    "\0\u040a\0\u0528\0\u053e\0\u0554\0\u056a\0\u0580\0\u04a4\0\26"+
+    "\0\u0596\0\u05ac\0\u05c2\0\u05d8\0\u05d8\0\u05ee\0\u0604\0\u0580"+
+    "\0\26\0\u061a\0\u0630\0\26\0\u05d8\0\u0344\0\u0646\0\u0604"+
+    "\0\26\0\26\0\u065c\0\u0672\0\u0646\0\26\0\u0688\0\u069e"+
+    "\0\u06b4\0\u06ca\0\u06e0\0\u06f6\0\u03c8\0\u070c";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[112];
+    int [] result = new int[110];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -124,65 +124,64 @@ class FernandezPerez {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\2\2\1\3\1\4\1\5\1\6\1\2\1\7\1\10"+
-    "\1\11\1\12\1\13\11\2\1\14\4\2\35\0\1\15"+
-    "\26\0\3\16\1\17\26\16\4\0\1\20\1\0\1\21"+
-    "\30\0\1\22\1\23\33\0\1\10\21\0\11\24\1\25"+
-    "\20\24\6\0\1\26\36\0\1\27\16\0\7\30\2\0"+
-    "\15\30\1\31\3\30\3\32\1\33\26\32\3\16\1\34"+
-    "\26\16\3\35\1\36\10\35\1\37\15\35\4\0\1\36"+
-    "\25\0\10\40\1\0\21\40\5\0\1\41\1\42\23\0"+
-    "\5\43\1\0\2\43\1\0\21\43\11\24\1\34\20\24"+
-    "\11\44\1\36\20\44\7\26\1\45\1\46\21\26\13\0"+
-    "\1\47\16\0\7\30\2\0\15\30\1\31\1\50\2\30"+
-    "\3\32\1\51\26\32\2\0\1\52\1\33\26\0\3\35"+
-    "\1\53\10\35\1\37\15\35\7\0\1\54\1\55\21\0"+
-    "\3\35\1\53\10\35\1\37\1\56\14\35\7\40\1\57"+
-    "\1\60\21\40\5\0\1\61\1\62\23\0\5\63\1\0"+
-    "\2\63\1\0\21\63\5\43\1\0\1\43\1\64\1\65"+
-    "\21\43\11\44\1\66\20\44\10\0\1\46\21\0\13\47"+
-    "\1\67\16\47\7\70\2\0\10\70\1\71\4\70\1\72"+
-    "\1\70\1\73\1\70\2\32\1\52\1\51\26\32\3\74"+
-    "\1\75\26\74\10\0\1\55\21\0\3\35\1\53\10\35"+
-    "\1\37\1\35\1\76\13\35\4\40\1\77\2\40\1\57"+
-    "\1\60\21\40\4\0\1\100\32\0\1\101\1\102\23\0"+
-    "\5\103\1\0\2\103\1\0\21\103\5\63\1\0\1\63"+
-    "\1\104\1\105\21\63\11\44\1\106\20\44\13\47\1\107"+
-    "\16\47\7\70\2\0\15\70\1\72\1\70\1\73\10\70"+
-    "\2\0\4\70\1\110\10\70\1\72\1\70\1\73\10\70"+
-    "\2\0\15\70\1\72\1\50\1\73\1\70\3\74\1\53"+
-    "\26\74\3\0\1\111\26\0\3\35\1\53\10\35\1\37"+
-    "\2\35\1\112\12\35\6\40\1\113\1\57\1\60\21\40"+
-    "\6\0\1\114\30\0\1\115\1\116\23\0\5\117\1\0"+
-    "\2\117\1\0\21\117\5\103\1\0\1\103\1\120\1\121"+
-    "\21\103\11\0\1\111\20\0\13\47\1\122\16\47\7\70"+
-    "\2\0\4\70\1\123\10\70\1\72\1\70\1\73\1\70"+
-    "\3\35\1\53\10\35\1\37\3\35\1\124\11\35\7\125"+
-    "\1\126\1\60\31\125\1\0\21\125\6\0\1\127\23\0"+
-    "\5\130\1\0\2\130\1\0\21\130\5\117\1\0\1\117"+
-    "\1\131\1\132\21\117\13\0\1\133\16\0\7\70\2\0"+
-    "\11\70\1\134\3\70\1\72\1\70\1\73\1\70\3\124"+
-    "\1\135\26\124\7\125\1\136\1\137\21\125\5\140\1\0"+
-    "\2\140\1\0\21\140\5\130\1\0\1\130\1\141\1\142"+
-    "\21\130\13\0\1\143\16\0\7\70\2\0\12\70\1\144"+
-    "\1\145\1\70\1\72\1\70\1\73\1\70\3\74\1\146"+
-    "\26\74\5\140\1\0\1\140\1\147\1\150\21\140\2\70"+
-    "\1\151\4\70\2\0\15\70\1\72\1\70\1\73\10\70"+
-    "\2\0\12\70\1\144\2\70\1\72\1\70\1\73\3\70"+
-    "\1\152\4\70\2\0\15\70\1\72\1\70\1\73\2\70"+
-    "\1\153\5\70\2\0\3\70\7\153\1\70\1\153\1\70"+
-    "\1\72\1\70\1\73\2\70\1\153\5\70\2\0\3\70"+
-    "\7\153\1\70\1\153\1\70\1\72\1\70\1\73\1\154"+
-    "\1\70\1\155\1\156\4\70\2\0\3\70\7\155\1\70"+
-    "\1\155\1\70\1\72\1\70\1\73\2\70\1\155\1\156"+
-    "\4\70\2\0\3\70\7\155\1\70\1\155\1\70\1\72"+
-    "\1\70\1\157\1\160\1\70\2\156\4\70\2\0\3\70"+
-    "\7\156\1\70\1\156\1\70\1\72\1\70\1\157\2\70"+
-    "\2\156\4\70\2\0\3\70\7\156\1\70\1\156\1\70"+
-    "\1\72\1\70\1\73\1\70";
+    "\3\2\1\3\1\4\1\5\1\2\1\6\1\7\1\10"+
+    "\1\11\1\12\5\2\1\13\4\2\26\0\3\14\1\15"+
+    "\22\14\4\0\1\16\1\0\1\17\24\0\1\20\1\21"+
+    "\27\0\1\7\15\0\11\22\1\23\14\22\6\0\1\24"+
+    "\32\0\1\25\12\0\7\26\2\0\11\26\1\27\3\26"+
+    "\3\14\1\30\22\14\3\31\1\32\4\31\1\33\1\34"+
+    "\14\31\4\0\1\32\21\0\10\35\1\0\15\35\5\0"+
+    "\1\36\1\37\17\0\5\40\1\0\2\40\1\0\15\40"+
+    "\11\22\1\30\14\22\11\41\1\32\14\41\7\24\1\42"+
+    "\1\43\15\24\13\0\1\44\12\0\7\26\2\0\11\26"+
+    "\1\27\1\45\2\26\3\31\1\46\4\31\1\33\1\34"+
+    "\14\31\7\0\1\47\1\50\15\0\3\33\1\46\22\33"+
+    "\3\34\1\51\4\34\1\33\1\52\14\34\7\35\1\53"+
+    "\1\54\15\35\5\0\1\55\1\56\17\0\5\57\1\0"+
+    "\2\57\1\0\15\57\5\40\1\0\1\40\1\60\1\61"+
+    "\15\40\11\41\1\62\14\41\10\0\1\43\15\0\13\44"+
+    "\1\63\12\44\7\64\2\0\3\64\1\65\5\64\1\66"+
+    "\1\64\1\67\1\64\3\33\1\70\22\33\10\0\1\50"+
+    "\15\0\3\34\1\71\4\34\1\33\1\52\14\34\3\52"+
+    "\1\72\4\52\2\33\14\52\4\35\1\73\2\35\1\53"+
+    "\1\54\15\35\4\0\1\74\26\0\1\75\1\76\17\0"+
+    "\5\77\1\0\2\77\1\0\15\77\5\57\1\0\1\57"+
+    "\1\100\1\101\15\57\11\41\1\102\14\41\13\44\1\103"+
+    "\12\44\7\64\2\0\11\64\1\66\1\64\1\67\10\64"+
+    "\2\0\4\64\1\104\4\64\1\66\1\64\1\67\10\64"+
+    "\2\0\11\64\1\66\1\45\1\67\1\64\3\0\1\105"+
+    "\22\0\3\106\1\107\4\106\1\0\1\110\14\106\3\33"+
+    "\1\111\22\33\6\35\1\112\1\53\1\54\15\35\6\0"+
+    "\1\113\24\0\1\114\1\115\17\0\5\116\1\0\2\116"+
+    "\1\0\15\116\5\77\1\0\1\77\1\117\1\120\15\77"+
+    "\11\0\1\105\14\0\13\44\1\121\12\44\7\64\2\0"+
+    "\4\64\1\122\4\64\1\66\1\64\1\67\1\64\10\106"+
+    "\1\0\1\110\14\106\3\110\1\123\4\110\2\0\14\110"+
+    "\7\124\1\125\1\54\25\124\1\0\15\124\6\0\1\126"+
+    "\17\0\5\127\1\0\2\127\1\0\15\127\5\116\1\0"+
+    "\1\116\1\130\1\131\15\116\13\0\1\132\12\0\7\64"+
+    "\2\0\5\64\1\133\3\64\1\66\1\64\1\67\1\64"+
+    "\3\0\1\134\22\0\7\124\1\135\1\136\15\124\5\137"+
+    "\1\0\2\137\1\0\15\137\5\127\1\0\1\127\1\140"+
+    "\1\141\15\127\13\0\1\142\12\0\7\64\2\0\6\64"+
+    "\1\143\1\144\1\64\1\66\1\64\1\67\1\64\5\137"+
+    "\1\0\1\137\1\145\1\146\15\137\2\64\1\147\4\64"+
+    "\2\0\11\64\1\66\1\64\1\67\10\64\2\0\6\64"+
+    "\1\143\2\64\1\66\1\64\1\67\3\64\1\150\4\64"+
+    "\2\0\11\64\1\66\1\64\1\67\2\64\1\151\5\64"+
+    "\2\0\3\64\3\151\1\64\1\151\1\64\1\66\1\64"+
+    "\1\67\2\64\1\151\5\64\2\0\3\64\3\151\1\64"+
+    "\1\151\1\64\1\66\1\64\1\67\1\152\1\64\1\153"+
+    "\1\154\4\64\2\0\3\64\3\153\1\64\1\153\1\64"+
+    "\1\66\1\64\1\67\2\64\1\153\1\154\4\64\2\0"+
+    "\3\64\3\153\1\64\1\153\1\64\1\66\1\64\1\155"+
+    "\1\156\1\64\2\154\4\64\2\0\3\64\3\154\1\64"+
+    "\1\154\1\64\1\66\1\64\1\155\2\64\2\154\4\64"+
+    "\2\0\3\64\3\154\1\64\1\154\1\64\1\66\1\64"+
+    "\1\67\1\64";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[2236];
+    int [] result = new int[1826];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -220,16 +219,16 @@ class FernandezPerez {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\5\1\1\11\4\1\11\0\1\1\5\0"+
-    "\1\11\10\0\1\1\1\11\3\0\1\11\1\0\1\1"+
-    "\1\11\1\0\2\1\3\0\1\1\1\11\5\0\1\1"+
-    "\1\0\1\1\6\0\1\1\1\11\1\1\2\0\1\11"+
-    "\6\0\1\1\1\11\1\1\3\0\1\1\2\0\1\1"+
-    "\1\11\1\1\2\0\2\1\1\0\1\1\2\11\2\0"+
-    "\2\1\1\11\6\0\1\1\1\0";
+    "\1\0\1\11\4\1\1\11\4\1\10\0\1\1\3\0"+
+    "\1\11\11\0\1\1\1\11\3\0\1\1\1\11\2\0"+
+    "\2\1\3\0\1\1\1\11\5\0\3\1\6\0\1\1"+
+    "\1\11\1\1\2\0\1\11\1\0\1\1\1\0\1\1"+
+    "\5\0\1\1\1\11\1\1\3\0\1\1\2\0\1\1"+
+    "\1\11\1\1\1\0\1\11\2\1\1\0\1\1\2\11"+
+    "\2\0\1\1\1\11\6\0\1\1\1\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[112];
+    int [] result = new int[110];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -352,7 +351,7 @@ class FernandezPerez {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 130) {
+    while (i < 116) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -667,17 +666,17 @@ class FernandezPerez {
           case 1: 
             { /*Ignorar*/
             }
-          case 20: break;
+          case 19: break;
           case 2: 
             { System.out.println("");
             }
-          case 21: break;
+          case 20: break;
           case 3: 
             { String cadena = yytext();
 				cadena=cadena.replace(">","	");
 				System.out.println("<blockquote>\n"+cadena+"</blockquote>");
             }
-          case 22: break;
+          case 21: break;
           case 4: 
             { String cadena = yytext();
 				cadena=cadena.substring(1,yylength()-1);
@@ -685,35 +684,26 @@ class FernandezPerez {
 				//cadena=cadena.replace("_","");
 				System.out.print("<SPAN class=\"ital\">"+cadena+"</SPAN>");
             }
-          case 23: break;
+          case 22: break;
           case 5: 
-            { String cadena = yytext();
-						cadena.substring(4, yylength()-4);
-						cadena=cadena.replace("*","");
-						System.out.print("----->"+ yytext()+"\n");
-						
-						System.out.print("<h1>"+cadena+"</h1>");
-            }
-          case 24: break;
-          case 6: 
             { System.out.println("<hr/>");
             }
-          case 25: break;
-          case 7: 
+          case 23: break;
+          case 6: 
             { String cadena = yytext();
 				cadena = cadena.substring(1,yylength()-2);
 				System.out.print("<ul><li>"+cadena+"</li></ul>");
             }
-          case 26: break;
-          case 8: 
+          case 24: break;
+          case 7: 
             { String cadena = yytext();
 				//cadena=cadena.replace("#","");
 				cadena = cadena.substring(1,yylength()-2);
 				System.out.print("<h1>"+cadena+"</h1>");
 				System.out.println();//Se le añade para meter el \n que le quitamos con substring
             }
-          case 27: break;
-          case 9: 
+          case 25: break;
+          case 8: 
             { String url="",text="";
 				String cadena = yytext();
 				int length = cadena.length();
@@ -727,23 +717,41 @@ class FernandezPerez {
 				System.out.print(text+"(URL aparentemente incorrecta)");
 				System.out.print("</A><br>");
             }
-          case 28: break;
-          case 10: 
+          case 26: break;
+          case 9: 
             { String cadena = yytext();
 				cadena = cadena.substring(2,yylength()-2);
 				//cadena=cadena.replace("*","");
 				//cadena=cadena.replace("_","");
 				System.out.print("<SPAN class=\"bold\">"+cadena+"</SPAN>");
             }
-          case 29: break;
-          case 11: 
+          case 27: break;
+          case 10: 
             { String cadena = yytext();
 				//cadena=cadena.replace("#","");
 				cadena = cadena.substring(2,yylength()-2);
 				System.out.print("<h2>"+cadena+"</h2>");
 				System.out.println();
             }
-          case 30: break;
+          case 28: break;
+          case 11: 
+            { String cadenAux,cadena = yytext();
+						while (cadena.charAt(c)!='_'){
+							c++;
+						}
+						cadenAux = cadena.substring(2,c);
+						System.out.print("<SPAN class=\"bold\">"+cadenAux);
+						cadena = cadena.substring(c+1,cadena.length());
+						c=0;
+						while (cadena.charAt(c)!='_'){
+							c++;
+						}
+						cadenAux= cadena.substring(0,c);
+						System.out.print("<SPAN class=\"ital\">"+cadenAux+"</SPAN>");
+						cadena = cadena.substring(c+1,cadena.length()-2);
+						System.out.print(cadena+"</SPAN>");
+            }
+          case 29: break;
           case 12: 
             { String cadena = yytext();
 				//cadena=cadena.replace("#","");
@@ -751,13 +759,13 @@ class FernandezPerez {
 				System.out.print("<h3>"+cadena+"</h3>");
 				System.out.println();
             }
-          case 31: break;
+          case 30: break;
           case 13: 
             { String cadena = yytext();
 				cadena=cadena.replace("~","");
 				System.out.println("<code> <pre>"+cadena+"</pre></code>");
             }
-          case 32: break;
+          case 31: break;
           case 14: 
             { String cadena = yytext();
 				//cadena=cadena.replace("#","");
@@ -765,7 +773,7 @@ class FernandezPerez {
 				System.out.print("<h4>"+cadena+"</h4>");
 				System.out.println();
             }
-          case 33: break;
+          case 32: break;
           case 15: 
             { String cadena = yytext();
 				String cadenAux;
@@ -786,7 +794,7 @@ class FernandezPerez {
 				}				
 				System.out.print("</ul>");
             }
-          case 34: break;
+          case 33: break;
           case 16: 
             { String cadena = yytext();
 				//cadena=cadena.replace("#","");
@@ -794,20 +802,16 @@ class FernandezPerez {
 				System.out.print("<h5>"+cadena+"</h5>");
 				System.out.println();
             }
-          case 35: break;
+          case 34: break;
           case 17: 
-            { System.out.println(yytext()+"YESS");
-            }
-          case 36: break;
-          case 18: 
             { String cadena = yytext();
 				//cadena=cadena.replace("#","");
 				cadena = cadena.substring(6,yylength()-2);//Recortamos yytext quitandole las # y el \n del final.(dejo el espacio inicial)				
 				System.out.print("<h6>"+cadena+"</h6>");
 				System.out.println();
             }
-          case 37: break;
-          case 19: 
+          case 35: break;
+          case 18: 
             { String url="",text="";
 				String cadena = yytext();
 				int length = cadena.length();
@@ -819,9 +823,9 @@ class FernandezPerez {
 				}
 				System.out.print("<A HREF=\""+url+ "\">");
 				System.out.print(text);
-				System.out.print("</A><br>");
+				System.out.print("</A><br>");//<br> introduccido para que al verlo como html salte de linea ya que <a> no lo hace
             }
-          case 38: break;
+          case 36: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
