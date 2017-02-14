@@ -61,12 +61,12 @@ import java.io.FileNotFoundException;
  Caracteres = [^\r\n]
 
  TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
- Tag_h1 = "#" [^#]*"#" 
- Tag_h2 = "##" [^#]* "##"
- Tag_h3 = "###" [^#]* "###"
- Tag_h4 = "####" [^#]* "####"
- Tag_h5 = "#####" [^#]* "#####"
- Tag_h6 = "######" [^#]* "######"
+ Tag_h1 = "# " [^#\n]+ {FinDeLinea} //# seguido de todo menos # o \n y que acabe en fin de linea
+ Tag_h2 = "## " [^#\n]+ {FinDeLinea}
+ Tag_h3 = "### " [^#\n]+ {FinDeLinea}
+ Tag_h4 = "#### " [^#\n]+ {FinDeLinea}
+ Tag_h5 = "##### " [^#\n]+ {FinDeLinea}
+ Tag_h6 = "###### " [^#\n]+ {FinDeLinea}
  Bold = "**" [^*] ~"**"
  Bold2 = "__" [^_] ~"__"
  Ital = "*" [^*]+ "*"
@@ -90,28 +90,40 @@ HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigit
 			}
 
 {Tag_h6} {		String cadena = yytext();
-				cadena=cadena.replace("#","");
+				//cadena=cadena.replace("#","");
+				cadena = cadena.substring(6,yylength()-2);//Recortamos yytext quitandole las # y el \n del final.(dejo el espacio inicial)				
 				System.out.print("<h6>"+cadena+"</h6>");
+				System.out.println();
 			}
 {Tag_h5} {		String cadena = yytext();
-				cadena=cadena.replace("#","");
+				//cadena=cadena.replace("#","");
+				cadena = cadena.substring(5,yylength()-2);
 				System.out.print("<h5>"+cadena+"</h5>");
+				System.out.println();
 			}
 {Tag_h4} {		String cadena = yytext();
-				cadena=cadena.replace("#","");
+				//cadena=cadena.replace("#","");
+				cadena = cadena.substring(4,yylength()-2);
 				System.out.print("<h4>"+cadena+"</h4>");
+				System.out.println();
 			}
 {Tag_h3} {		String cadena = yytext();
-				cadena=cadena.replace("#","");
+				//cadena=cadena.replace("#","");
+				cadena = cadena.substring(3,yylength()-2);
 				System.out.print("<h3>"+cadena+"</h3>");
+				System.out.println();
 			}
 {Tag_h2} {		String cadena = yytext();
-				cadena=cadena.replace("#","");
+				//cadena=cadena.replace("#","");
+				cadena = cadena.substring(2,yylength()-2);
 				System.out.print("<h2>"+cadena+"</h2>");
+				System.out.println();
 			}
 {Tag_h1} {		String cadena = yytext();
-				cadena=cadena.replace("#","");
+				//cadena=cadena.replace("#","");
+				cadena = cadena.substring(1,yylength()-2);
 				System.out.print("<h1>"+cadena+"</h1>");
+				System.out.println();//Se le añade para meter el \n que le quitamos con substring
 			}
 
 {AnidarItalenBold}	{

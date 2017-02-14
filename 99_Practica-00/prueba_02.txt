@@ -1,21 +1,20 @@
+###### un apartado con h6
 
-###### Encabezado con h6 ######
+# Titulo de la pagina
 
-#Titulo de la pagina#
-#####Esto es en h5 ##### 
+##### Esto es en h5 
 ***
-##Ahora un subtitulo##
+## Ahora un subtitulo
+# Titulo de la pagina
 ---
-### un pequeño texto con letra
-mas pequeña h3 dfnssldksdjsd
-djskdsslfffm ###
+### un pequeño texto con letra mas pequeña h3 dfnssldksdjsd djskdsslfffm 
 
-####Esto es en h4 #### 
+#### Esto es en h4 
 ___
- __esta frase con un caracter _ y esta en negrita__ ##con barra baja##
-*esta linea es cursiva * ##con un asterisco##
-**esta en negrita  ** ## con asteriscos##
-_esta es cursiva tb_ ##ahora con una barra baja##
+ __esta frase con un caracter _ y esta en negrita__ ## con barra baja
+*esta linea es cursiva * ## con un asterisco
+**esta en negrita  ** ## con asteriscos
+_esta es cursiva tb_ ## ahora con una barra baja
 ___
 
 ~~~
@@ -27,7 +26,8 @@ ___
 > Esto sera una cita
      >  Y esto  tb sera una cita
 
-  
+ # Otro tiddtulo h1
+
 [haber si es un enlace ya bueno ](https://urjc.com/mypag)
 [haber si es un enlace bueno ](http://www.google.com)
 [haber si es un enlace malo ](http://google/ddlf)
