@@ -37,3 +37,10 @@ ___
 
 ** esto negrita1 _CURSIVA_ esto negrita2**
 
+- una lista
+- otra lista dentro de ella
+
+- otra lista distinta 
+
+# encabezado
+

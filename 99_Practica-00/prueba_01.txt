@@ -67,3 +67,13 @@ ___
 				System.out.println("<SPAN class=\"ital\">"+cadena+"</SPAN>");
 
 			}
+
+
+		---------------------------------------------------
+
+		{TraditionalComment} {	String cadena = yytext();
+						cadena.substring(4, yylength()-4);
+						cadena=cadena.replace("*","");
+						System.out.print("----->"+ yytext()+"\n");
+						
+						System.out.print("<h1>"+cadena+"</h1>");}

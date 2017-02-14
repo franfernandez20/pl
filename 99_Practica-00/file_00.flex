@@ -74,13 +74,15 @@ import java.io.FileNotFoundException;
  Cita = "> "{Caracteres}* {FinDeLinea}?
  Separador = "***"{FinDeLinea} | "---"{FinDeLinea} | "___"{FinDeLinea}
  
- Code = "~~~" {CualquierCosa} ~"~~~"
+ Code = "~~~" {CualquierCosa} ~"~~~" //Si lo metes en la misma linea tb lo reconoce 
 
 AnidarItalenBold = "**" [^*]* Ital2 [^*]* "**"
 Http = "http://" | "https://"
 Href = "[" {Caracteres}* "]" "(" {Caracteres}* ")"
 HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
 
+Lista  = "- " [^\n]+ {FinDeLinea}
+ListaN = {Lista} {Lista}+
 
 /* Finaliza expresiones regulares */
 %%
@@ -157,14 +159,32 @@ HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigit
 				cadena=cadena.replace("~","");
 				System.out.println("<code> <pre>"+cadena+"</pre></code>");
 			}
+{ListaN}	{
+				String cadena = yytext();
+				String cadenAux;
+				int c;
+				System.out.println("<ul>");
+				while (!cadena.isEmpty()){
+					if (cadena.charAt(0)=='-'){
+						c=1;
+						while (cadena.charAt(c)!='\n'){
+							c++;
+						}
+						cadenAux = cadena.substring(1,c-1);
+						System.out.println("<li>"+cadenAux+"</li>");
+						cadena = cadena.substring(c+1,cadena.length());
+					}else {
+						cadena=cadena.substring(1,cadena.length());
+					}
+				}				
+				System.out.print("</ul>");
+			}
 
-
-{TraditionalComment} {	String cadena = yytext();
-						cadena.substring(4, yylength()-4);
-						cadena=cadena.replace("*","");
-						System.out.print("----->"+ yytext()+"\n");
-						
-						System.out.print("<h1>"+cadena+"</h1>");}
+{Lista}		{
+				String cadena = yytext();
+				cadena = cadena.substring(1,yylength()-2);
+				System.out.print("<ul><li>"+cadena+"</li></ul>");
+			}
 
 {HrefCompl}	{
 				String url="",text="";
@@ -178,7 +198,8 @@ HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigit
 				}
 				System.out.print("<A HREF=\""+url+ "\">");
 				System.out.print(text);
-				System.out.print("</A>");
+				System.out.print("</A><br>");//<br> introduccido para que al verlo como html salte de linea ya que <a> no lo hace
+
 			}
 
 {Href}		{
@@ -193,7 +214,7 @@ HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigit
 				}
 				System.out.print("<A HREF=\""+url+ "\">");
 				System.out.print(text+"(URL aparentemente incorrecta)");
-				System.out.print("</A>");
+				System.out.print("</A><br>");
 			}
 
 
