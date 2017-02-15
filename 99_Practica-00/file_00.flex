@@ -5,12 +5,10 @@ import java.io.FileNotFoundException;
 %%
 %class FernandezPerez
 %standalone
-%{
- 
+%{ 
  /* Código personalizado */
- 
- 
- private int c = 0;
+  
+// private int c = 0;
  
 %}
 %init{
@@ -59,6 +57,8 @@ import java.io.FileNotFoundException;
 
  FinDeLinea = \r|\n|\r\n
  Caracteres = [^\r\n]
+ CaracteresSinCorchete = [^\r\n"[""]"]
+ CaracteresSinParentesis = [^\r\n"("")""[""]"]
 
  TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
  Tag_h1 = "# " [^#\n]+ {FinDeLinea} //# seguido de todo menos # o \n y que acabe en fin de linea
@@ -77,10 +77,11 @@ import java.io.FileNotFoundException;
  Code = "~~~" {CualquierCosa} ~"~~~" //Si lo metes en la misma linea tb lo reconoce 
 
 AnidarItalenBold = "**" [^*\n_]* "_" [^_\n]* "_" [^*\n_]* "**"
+AnidarBoldenItal = "_" [^*\n_]* "**" [^*\n]* "**" [^*\n_]* "_"
 
 Http = "http://" | "https://"
-Href = "[" {Caracteres}* "]" "(" {Caracteres}* ")"
-HrefCompl = "[" {Caracteres}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
+Href = "[" {CaracteresSinCorchete}* "]" "(" {CaracteresSinParentesis}* ")"
+HrefCompl = "[" {CaracteresSinCorchete}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
 
 Lista  = "- " [^\n]+ {FinDeLinea}
 ListaN = {Lista} {Lista}+
@@ -129,8 +130,28 @@ ListaN = {Lista} {Lista}+
 				System.out.println();//Se le añade para meter el \n que le quitamos con substring
 			}
 
+{AnidarBoldenItal}	{
+						String cadenAux,cadena = yytext();
+						int c = 0;
+						while (cadena.charAt(c)!='*'){
+							c++;
+						}
+						cadenAux = cadena.substring(1,c);
+						System.out.print("<SPAN class=\"ital\">"+cadenAux);
+						cadena = cadena.substring(c+2,cadena.length());
+						c=0;
+						while (cadena.charAt(c)!='*'){
+							c++;
+						}
+						cadenAux= cadena.substring(0,c);
+						System.out.print("<SPAN class=\"bold\">"+cadenAux+"</SPAN>");
+						cadena = cadena.substring(c+2,cadena.length()-1);
+						System.out.print(cadena+"</SPAN>");						
+					}
+
 {AnidarItalenBold}	{
 						String cadenAux,cadena = yytext();
+						int c=0;
 						while (cadena.charAt(c)!='_'){
 							c++;
 						}
@@ -144,8 +165,7 @@ ListaN = {Lista} {Lista}+
 						cadenAux= cadena.substring(0,c);
 						System.out.print("<SPAN class=\"ital\">"+cadenAux+"</SPAN>");
 						cadena = cadena.substring(c+1,cadena.length()-2);
-						System.out.print(cadena+"</SPAN>");
-						
+						System.out.print(cadena+"</SPAN>");						
 					}
 {Bold} | {Bold2}	{
 				String cadena = yytext();
@@ -237,4 +257,4 @@ ListaN = {Lista} {Lista}+
 {FinDeLinea} {System.out.println("");}
 
 
-[^] {/*Ignorar*/}
+//[^] {/*Ignorar*/} Si no reconoce ningun patron standalone lo mostrara por la salida
