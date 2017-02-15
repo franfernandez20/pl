@@ -35,9 +35,9 @@ ___
 [haber si es un enlace malo ](httdfp://www.google.com)
 [haber si es un enlace malo ](http://www.goog/le.com)
 
-[haber si es un] enlace malo ](http://www.zzzz.com)
-[haber si es un enlace malo ][[[](http://www.yyyyy.com)
-[haber si es un enlace malo ](http://]www.xxx.com)
+[eso es enalece bueno ](http://www.zzzz.com)
+[   ](http://www.yyyyy.com)
+[haber si es un enlace malo ](http://www.xxx.com)
 
 ** esto negrita1 _CURSIVA_ esto negrita2 **
 
@@ -50,7 +50,7 @@ ___
 
 ** esto sera negrita _ dentro de la negrita esto en cursiva _ y ahora mas negrita **
 
-_esto seria cursiva **y la negrita dentro de la curiva** otr vez cursia_
+_esto seria cursiva **y la negrita dentro de la cursiva** otra vez cursiva_
 
 
 sjjjsidjdi

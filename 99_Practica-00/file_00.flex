@@ -51,26 +51,26 @@ import java.io.FileNotFoundException;
  Letra = [A-Za-z]
  LetrasDigitos = ({Letra} | {Digito})+
  LetrasDigitosBarra = ({Letra} | {Digito} | "/")+
- Palabra = {Letra} {Letra}*
- Simbolo = "*"|"+"|"-"|"/"|"#"
+ Palabra = {Letra} {Letra}* 
  Espacio = " "
 
  FinDeLinea = \r|\n|\r\n
  Caracteres = [^\r\n]
  CaracteresSinCorchete = [^\r\n"[""]"]
- CaracteresSinParentesis = [^\r\n"("")""[""]"]
-
- TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+ CaracSinParentesisSinCorchete = [^\r\n"("")""[""]"]
+ 
  Tag_h1 = "# " [^#\n]+ {FinDeLinea} //# seguido de todo menos # o \n y que acabe en fin de linea
  Tag_h2 = "## " [^#\n]+ {FinDeLinea}
  Tag_h3 = "### " [^#\n]+ {FinDeLinea}
  Tag_h4 = "#### " [^#\n]+ {FinDeLinea}
  Tag_h5 = "##### " [^#\n]+ {FinDeLinea}
  Tag_h6 = "###### " [^#\n]+ {FinDeLinea}
+ 
  Bold = "**" [^*] ~"**"
  Bold2 = "__" [^_] ~"__"
  Ital = "*" [^*]+ "*"
  Ital2 = "_" [^_]+ "_"
+ 
  Cita = "> "{Caracteres}* {FinDeLinea}?
  Separador = "***"{FinDeLinea} | "---"{FinDeLinea} | "___"{FinDeLinea}
  
@@ -80,7 +80,7 @@ AnidarItalenBold = "**" [^*\n_]* "_" [^_\n]* "_" [^*\n_]* "**"
 AnidarBoldenItal = "_" [^*\n_]* "**" [^*\n]* "**" [^*\n_]* "_"
 
 Http = "http://" | "https://"
-Href = "[" {CaracteresSinCorchete}* "]" "(" {CaracteresSinParentesis}* ")"
+Href = "[" {CaracteresSinCorchete}* "]" "(" {CaracSinParentesisSinCorchete}* ")"
 HrefCompl = "[" {CaracteresSinCorchete}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
 
 Lista  = "- " [^\n]+ {FinDeLinea}
