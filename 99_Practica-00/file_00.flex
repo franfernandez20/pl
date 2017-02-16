@@ -1,7 +1,10 @@
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.io.FileNotFoundException;
+import java.io.*;
+
+/**
+* @author Francisco Fernández Pérez
+* num exp: 170
+**/
+
 %%
 %class FernandezPerez
 %standalone
@@ -9,18 +12,29 @@ import java.io.FileNotFoundException;
  /* Código personalizado */
   
 // private int c = 0;
+ 	FileWriter fichero = null;
+	PrintWriter pw = null;
+	private int encabezado;
  
 %}
 %init{
  /* Código que se ejecutará en el constructor de la clase */
-	/*Codigo para redirigir la salida a un archivo .html 
-			--TODO habria que añadir "throws FileNotFoundException"
-			desde aqui y en el escaner de la clase java :MdtoHTML(java.io.Reader in) 
-	*/
-//	File file = new File("salida.html");
-//	FileOutputStream fos = new FileOutputStream(file);
-//	PrintStream ps = new PrintStream(fos);
-//	System.setOut(ps);
+
+	/*Codigo para redirigir la salida a un archivo .html */
+ String fileName="salida.html";  
+    try {
+
+        PrintStream ps = new PrintStream(new BufferedOutputStream(
+
+                new FileOutputStream(new File(fileName),false)),true);
+        //Redirigimos entrada y salida estandar
+        System.setOut(ps);
+        System.setErr(ps);
+    } catch (FileNotFoundException ex) {
+
+        System.err.println("Error en la apertura del fichero de salida");
+
+    }
 	////
  	System.out.println("<!DOCTYPE html><html>");
  	System.out.println("<head>");
@@ -33,32 +47,28 @@ import java.io.FileNotFoundException;
 
 %init}
 
-/*Prueba para lanzar la excepcion comentada arriba*/
-//%initthrow{
-//		"FileNotFoundException"
-//%initthrow}
-%eof{
- 
+%eof{ 
  /* Código a ejecutar al finalizar el análisis */
 	
 	System.out.println("</body></html>");
- 
+
 %eof}
 /* Inicio de Expresiones regulares */
+ 	/* Macros pauxiliares */
  CualquierCosa = [.|\n]*
- Digito = [0-9]
- Numero = {Digito} {Digito}*
+ Digito = [0-9] 
  Letra = [A-Za-z]
  LetrasDigitos = ({Letra} | {Digito})+
  LetrasDigitosBarra = ({Letra} | {Digito} | "/")+
- Palabra = {Letra} {Letra}* 
- Espacio = " "
-
+ 
  FinDeLinea = \r|\n|\r\n
  Caracteres = [^\r\n]
  CaracteresSinCorchete = [^\r\n"[""]"]
  CaracSinParentesisSinCorchete = [^\r\n"("")""[""]"]
- 
+
+ Http = "http://" | "https://"
+
+ /* Macros -> Patrones */
  Tag_h1 = "# " [^#\n]+ {FinDeLinea} //# seguido de todo menos # o \n y que acabe en fin de linea
  Tag_h2 = "## " [^#\n]+ {FinDeLinea}
  Tag_h3 = "### " [^#\n]+ {FinDeLinea}
@@ -79,7 +89,7 @@ import java.io.FileNotFoundException;
 AnidarItalenBold = "**" [^*\n_]* "_" [^_\n]* "_" [^*\n_]* "**"
 AnidarBoldenItal = "_" [^*\n_]* "**" [^*\n]* "**" [^*\n_]* "_"
 
-Http = "http://" | "https://"
+
 Href = "[" {CaracteresSinCorchete}* "]" "(" {CaracSinParentesisSinCorchete}* ")"
 HrefCompl = "[" {CaracteresSinCorchete}* "]" "(" {Http} ({LetrasDigitos} ".")? {LetrasDigitos} "." {LetrasDigitosBarra} ")"
 
@@ -93,38 +103,32 @@ ListaN = {Lista} {Lista}+
 				System.out.println("<hr/>");
 			}
 
-{Tag_h6} {		String cadena = yytext();
-				//cadena=cadena.replace("#","");
+{Tag_h6} {		String cadena = yytext();				
 				cadena = cadena.substring(6,yylength()-2);//Recortamos yytext quitandole las # y el \n del final.(dejo el espacio inicial)				
 				System.out.print("<h6>"+cadena+"</h6>");
 				System.out.println();
 			}
-{Tag_h5} {		String cadena = yytext();
-				//cadena=cadena.replace("#","");
+{Tag_h5} {		String cadena = yytext();				
 				cadena = cadena.substring(5,yylength()-2);
 				System.out.print("<h5>"+cadena+"</h5>");
 				System.out.println();
 			}
-{Tag_h4} {		String cadena = yytext();
-				//cadena=cadena.replace("#","");
+{Tag_h4} {		String cadena = yytext();				
 				cadena = cadena.substring(4,yylength()-2);
 				System.out.print("<h4>"+cadena+"</h4>");
 				System.out.println();
 			}
-{Tag_h3} {		String cadena = yytext();
-				//cadena=cadena.replace("#","");
+{Tag_h3} {		String cadena = yytext();				
 				cadena = cadena.substring(3,yylength()-2);
 				System.out.print("<h3>"+cadena+"</h3>");
 				System.out.println();
 			}
-{Tag_h2} {		String cadena = yytext();
-				//cadena=cadena.replace("#","");
+{Tag_h2} {		String cadena = yytext();				
 				cadena = cadena.substring(2,yylength()-2);
 				System.out.print("<h2>"+cadena+"</h2>");
 				System.out.println();
 			}
-{Tag_h1} {		String cadena = yytext();
-				//cadena=cadena.replace("#","");
+{Tag_h1} {		String cadena = yytext();				
 				cadena = cadena.substring(1,yylength()-2);
 				System.out.print("<h1>"+cadena+"</h1>");
 				System.out.println();//Se le añade para meter el \n que le quitamos con substring
@@ -170,8 +174,6 @@ ListaN = {Lista} {Lista}+
 {Bold} | {Bold2}	{
 				String cadena = yytext();
 				cadena = cadena.substring(2,yylength()-2);
-				//cadena=cadena.replace("*","");
-				//cadena=cadena.replace("_","");
 				System.out.print("<SPAN class=\"bold\">"+cadena+"</SPAN>");
 
 			}
@@ -179,13 +181,12 @@ ListaN = {Lista} {Lista}+
 {Ital} | {Ital2}	{
 				String cadena = yytext();
 				cadena=cadena.substring(1,yylength()-1);
-				//cadena=cadena.replace("*","");
-				//cadena=cadena.replace("_","");
 				System.out.print("<SPAN class=\"ital\">"+cadena+"</SPAN>");
 
 			}
 
-{Cita}		{	String cadena = yytext();
+{Cita}		{	
+				String cadena = yytext();
 				cadena=cadena.replace(">","	");
 				System.out.println("<blockquote>\n"+cadena+"</blockquote>");
 			}
